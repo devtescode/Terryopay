@@ -59,7 +59,7 @@ const DashboardDetails = () => {
                         <p>Transaction Receipt</p>
                     </div>
                 </div>
-                <div className='text-center' style={{ marginTop: "60px" }}>
+                <div className='text-center' style={{ marginTop: "50px" }}>
                     <h2 style={{ color: "green", fontSize: "30px" }}>
                         ₦{amount}.00
                     </h2>
