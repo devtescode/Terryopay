@@ -60,7 +60,7 @@ const DashboardDetails = () => {
                     </div>
                 </div>
                 <div className='text-center' style={{ marginTop: "80px" }}>
-                    <h2 style={{ color: "green", fontSize: "40px" }}>
+                    <h2 style={{ color: "green", fontSize: "35px" }}>
                         ₦{amount}.00
                     </h2>
                     <h2 className='mimsize'>Success</h2>
