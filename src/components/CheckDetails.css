@@ -40,5 +40,8 @@
       /* background-color: aquamarine; */
       min-height: 85vh !important;
       padding: 10px;
+      position: absolute;
+      bottom: 10%;
+      width: 100%;
     }
 }
