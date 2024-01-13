@@ -142,8 +142,8 @@ const DashboardDetails = () => {
                     <p>Enjoy a reliable & stable network service and a welcome bonus of ₦1,200 cashback on Opay.</p>
                 </div>
             </div>
-            <div className='border border-2 col-md-5 col-sm-12 mx-auto shadow-lg mt-2'>
-                <button className='btn btn-success w-100 p-3'>Share Receipt</button>
+            <div className='col-md-5 col-sm-12 mx-auto mt-2'>
+                <button className='btn btn-success w-100 p-2'>Share Receipt</button>
             </div>
         </>
     )
