@@ -38,7 +38,7 @@ const DashboardDetails = () => {
     useEffect(() => {
         const generateRandomNumberstwo = () => {
             const numberstwo = [];
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 13; i++) {
                 const randomNumbertwo = Math.round(Math.random() * 100);
                 numberstwo.push(randomNumbertwo);
             }
