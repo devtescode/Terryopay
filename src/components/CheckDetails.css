@@ -1,0 +1,44 @@
+.donecolor {
+    color: green;
+}
+.removeborder{
+    border: none;
+}
+.thewith {
+    width: 100px;
+}
+.card{
+ 
+        margin-top: 40px;
+    }
+.mymiddle2{
+    display: flex !important;
+    text-align: center !important;
+    justify-content: center;
+    justify-content: space-around;
+}
+.one1 {
+    /* border: 1px solid; */
+    width: 150px;
+    background-color: whitesmoke;
+}
+.two2{
+    /* border: 1px solid; */
+     width: 150px;
+    background-color: whitesmoke;
+}
+.color{
+    color: green;
+    
+}
+@media (max-width:688px) {
+    .card{
+        width: 98% !important;
+        margin-top: 20px;
+    }
+    .checkdetailresp{
+      /* background-color: aquamarine; */
+      min-height: 85vh !important;
+      padding: 10px;
+    }
+}
