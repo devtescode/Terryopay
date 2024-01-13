@@ -25,7 +25,7 @@ const DashboardDetails = () => {
     useEffect(() => {
         const generateRandomNumbers = () => {
             const numbers = [];
-            for (let i = 0; i < 9; i++) {
+            for (let i = 0; i < 8; i++) {
                 const randomNumber = Math.round(Math.random() * 100);
                 numbers.push(randomNumber);
             }
