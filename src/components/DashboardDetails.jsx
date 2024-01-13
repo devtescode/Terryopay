@@ -143,7 +143,7 @@ const DashboardDetails = () => {
                 </div>
             </div>
             <div className='col-md-5 col-sm-12 mx-auto mt-2'>
-                <button className='btn btn-success w-100 p-2'>Share Receipt</button>
+                <button className='btn btn-success w-100 p-3' style={{alignItems: "center"}}>Share Receipt</button>
             </div>
         </>
     )
