@@ -38,8 +38,8 @@
     }
     .checkdetailresp{
       /* background-color: aquamarine; */
-      margin-top: 40px !important;
+      /* margin-top: 40px !important; */
       min-height: 100vh !important;
-      padding: 10px;
+      /* padding: 10px; */
     }
 }
