@@ -1,5 +1,6 @@
 .mimsize {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: -5px;
 }
 .putOpacity{   
     filter: opacity(50%);
