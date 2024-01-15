@@ -11,6 +11,7 @@
     border: none;
     border-bottom: 2px solid #ccc;
     outline: none;
+    margin-top: 40px;
     background-color: transparent;
   }
   
@@ -49,6 +50,7 @@
   @media (max-width:688px) {
     .centerstyle {
       margin-top: 20%;
+      height: 100vh;
     }
   }
 

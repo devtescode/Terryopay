@@ -62,8 +62,8 @@ const Details = () => {
     return (
         <>
             <form onSubmit={formik.handleSubmit}>
-                <div className='col-md-6 mx-auto shadow-lg p-3 border border-2 border-dark rounded-3 centerstyle'>
-                    <h4 className='fw-bold text-center'>Receipt</h4>
+                <div className='col-md-6 mx-auto shadow-lg p-3 border border-2 border-light centerstyle'>
+                    {/* <h4 className='fw-bold text-center'>Receipt</h4> */}
                     <div class="input-container">
                         <input onChange={formik.handleChange} name='Amount' value={formik.values.Amount} placeholder="Amount" class="input-field" type="text" />
                         <label for="input-field" class="input-label">Amount</label>
@@ -103,7 +103,7 @@ const Details = () => {
                         <input disabled placeholder="Account Name" class="input-field text-center fw-bold" type="text" value={account}/>
                         <span class="input-highlight"></span>
                     </div>
-                    <div className='text-center'>
+                    <div className='text-center mt-5'>
                         <button className='btn btn-secondary' type="submit">Click On</button>
                     </div>
                 </div>
