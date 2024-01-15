@@ -11,7 +11,7 @@ const DashboardDetails = () => {
     const accountnumber = params.get('accountnumber')
     const Remark = params.get('Remark')
     const [mydate, setMyDate] = useState('');
-
+    const [status, setStatus] = useState('pending');
     useEffect(() => {
         const updateDate = () => {
             const currentDate = new Date().toLocaleString();
@@ -48,6 +48,9 @@ const DashboardDetails = () => {
         generateRandomNumberstwo();
     }, []);
 
+    const TriggerBtn = () => {
+        setStatus((prevStatus) => (prevStatus === 'success' ? 'pending' : 'success'));
+    };
     return (
         <>
             <div className='border border-2 col-md-5 col-sm-12 mx-auto shadow-lg'>
@@ -63,7 +66,8 @@ const DashboardDetails = () => {
                     <h2 style={{ color: "green", fontSize: "30px" }}>
                         ₦{amount}.00
                     </h2>
-                    <h2 className='mimsize'>Success</h2>
+                    {/* <h2 className='mimsize'>Success</h2> */}
+                    <h2 className='mimsize'>{status === 'success' ? 'Success' : 'Pending'}</h2>
                 </div>
                 <div id="showdate" className="text-center" style={{ fontSize: '14px' }}>
                     {mydate}
@@ -143,7 +147,15 @@ const DashboardDetails = () => {
                 </div>
             </div>
             <div className='col-md-5 col-sm-12 mx-auto mt-2'>
-                <button className='btn btn-success w-100 p-3' style={{alignItems: "center"}}>Share Receipt</button>
+                {/* <button className='btn btn-success w-100 p-3' style={{ alignItems: "center" }} onClick={TriggerBtn}>Share Receipt</button> */}
+
+                <button
+                    className={`btn ${status === 'success' ? 'btn-success' : 'btn-success'} w-100 p-3`}
+                    style={{ alignItems: 'center' }}
+                    onClick={TriggerBtn}
+                >
+                    Share Receipt
+                </button>
             </div>
         </>
     )

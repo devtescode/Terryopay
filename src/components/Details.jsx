@@ -23,6 +23,7 @@ const Details = () => {
         }),
         onSubmit: values => {
             // http://localhost:5000
+            // https://candyopay.onrender.com
             axios.post("https://candyopay.onrender.com/userinvest/userDetails", {AccountNumber: values.accountnumber, Bankcode: values.selectaccount, bank: Data.banks.find((item)=>(item.code=== values.selectaccount)).name})
             .then((response)=>{
                 swal({
