@@ -67,7 +67,7 @@ const DashboardDetails = () => {
                         ₦{amount}.00
                     </h2>
                     {/* <h2 className='mimsize'>Success</h2> */}
-                    <h2 className='mimsize'>{status === 'success' ? 'Success' : 'Pending'}</h2>
+                    <h2 className='mimsize'>{status === 'success' ? 'Pending' : 'Success'}</h2>
                 </div>
                 <div id="showdate" className="text-center" style={{ fontSize: '14px' }}>
                     {mydate}
