@@ -43,6 +43,15 @@
   .input-field:focus + .input-label + .input-highlight {
     width: 100%;
   }
+  .centerstyle {
+    margin-top: 10px;
+  }
+  @media (max-width:688px) {
+    .centerstyle {
+      margin-top: 20%;
+    }
+  }
+
 
 
   
