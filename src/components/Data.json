@@ -351,6 +351,13 @@
             "country": "Nigeria"
         },
         {
+            "name": "Moniepoint MFB",
+            "code": "50515",
+            "slug": "Moniepoint MFB",
+            "currency": "NGN",
+            "country": "Nigeria"
+        },
+        {
             "name": "Sparkle Microfinance Bank",
             "code": "51310",
             "slug": "sparkle-microfinance-bank",
