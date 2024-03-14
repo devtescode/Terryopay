@@ -8,12 +8,13 @@ const CheckDetails = () => {
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const accountName = params.get('accountName');
+    const nameit = params.get('nameit');
     const amount = params.get('amount');
     const accountnumber = params.get('accountnumber');
     const Remark = params.get('Remark');
     const navigate = useNavigate();
      const ShareBtn=()=>{
-        navigate(`/dashboard?accountName=${accountName}&amount=${amount}&accountnumber=${accountnumber}&Remark=${Remark}`);
+        navigate(`/dashboard?accountName=${accountName}&amount=${amount}&accountnumber=${accountnumber}&Remark=${Remark}&nameit=${nameit}`);
         // $Remark=${Remark}
      }
     return (

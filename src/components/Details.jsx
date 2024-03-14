@@ -11,7 +11,7 @@ const Details = () => {
     const formik = useFormik({
         initialValues: {
             accountnumber: "",
-            selectaccount: "",
+            selectaccount: "ggg",
             Amount: "",
             Remark: "",
         },
@@ -24,7 +24,8 @@ const Details = () => {
         onSubmit: values => {
             // http://localhost:5000
             // https://candyopay.onrender.com
-            axios.post("https://candyopay.onrender.com/userinvest/userDetails", {AccountNumber: values.accountnumber, Bankcode: values.selectaccount, bank: Data.banks.find((item)=>(item.code=== values.selectaccount)).name})
+            const nameit =  Data.banks.find((item)=>(item.code=== values.selectaccount)).name 
+            axios.post("https://candyopay.onrender.com/userinvest/userDetails", {AccountNumber: values.accountnumber, Bankcode: values.selectaccount, bank: nameit})
             .then((response)=>{
                 swal({
                     title: "",
@@ -42,8 +43,7 @@ const Details = () => {
                         icon: "success",
                         button: "Okay",
                     }); 
-                    // navigate("/check")
-                    navigate(`/check?accountName=${response.data.accountName}&amount=${values.Amount}&accountnumber=${values.accountnumber}&Remark=${values.Remark}`);
+                    navigate(`/check?accountName=${response.data.accountName}&amount=${values.Amount}&accountnumber=${values.accountnumber}&Remark=${values.Remark}&bankCode=${values.selectaccount}&nameit=${nameit}`);
                     console.log(response);
                 }
             })      

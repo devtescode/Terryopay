@@ -7,6 +7,7 @@ const DashboardDetails = () => {
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const accountName = params.get('accountName');
+    const nameit = params.get('nameit');
     const amount = params.get('amount');
     const accountnumber = params.get('accountnumber')
     const Remark = params.get('Remark')
@@ -88,12 +89,12 @@ const DashboardDetails = () => {
                     <div>
                         <p className='putOpacity'>Recipient Details</p>
                     </div>
-                    <div>
-                        <b>{accountName}</b>
+                    <div className='d-flex'>
+                    <b>{accountName}</b>
                     </div>
                 </div>
                 <div className='text-end mx-2' style={{ marginTop: "-15px" }}>
-                    <p>{accountnumber}</p>
+                <p> {nameit} | {accountnumber}</p>
                 </div>
                 <div className='d-flex justify-content-between mx-2'>
                     <div>
