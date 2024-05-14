@@ -38,6 +38,7 @@ const Details = () => {
                     // alert(response.data.message)
                     if (response.data.status == true) {
                         setaccount(response.data.accountName)
+                        
                         // alert(response.data.message)
                         swal({
                             title: "Good job!",
@@ -163,6 +164,10 @@ const Details = () => {
                         <div key={index} onClick={() => handleHistoryItemClick(formData)} style={{ cursor: 'pointer' }}>
                             <div class="card shadow-lg">
                                 <ul class="list-group list-group-flush">
+                                    
+                                    {/* <li class="list-group-item">
+                                    <p>{`Account Name: ${formData.accountName}`}</p>
+                                    </li> */}
                                     <li class="list-group-item">
                                         <p>{`Account Number: ${formData.accountnumber}`}</p>
                                     </li>
