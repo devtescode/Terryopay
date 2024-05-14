@@ -138,7 +138,7 @@ const Details = () => {
                     <div className='text-center mt-5'>
                         <button className='btn btn-secondary' type="submit">Click On</button>
                     </div>
-                    <button className="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                    <button className="btn btn-light shadow-lg historydiv" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
                         History
                     </button>
                 </div>
@@ -147,7 +147,7 @@ const Details = () => {
 
             <div className="offcanvas offcanvas-start" data-bs-backdrop="static" tabIndex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
                 <div className="offcanvas-header">
-                    <h5 className="offcanvas-title" id="staticBackdropLabel">History</h5>
+                    <h5 className="offcanvas-title fs-3" id="staticBackdropLabel">History</h5>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body">
