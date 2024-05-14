@@ -80,7 +80,12 @@ const Details = () => {
 
     const handleHistoryItemClick = (formData) => {
         formik.setValues(formData);
+        const closeButton = document.querySelector('.offcanvas-header button.btn-close');
+        if (closeButton) {
+            closeButton.click();
+        }
     };
+    
 
     const handleDelete = (index) => {
         const updatedHistory = [...formDataHistory];
@@ -88,6 +93,8 @@ const Details = () => {
         localStorage.setItem('formDataHistory', JSON.stringify(updatedHistory));
         setFormDataHistory(updatedHistory);
     };
+
+    
 
     const filteredHistory = formDataHistory.filter(formData => formData.accountnumber.includes(searchQuery));
     return (
