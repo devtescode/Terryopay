@@ -89,6 +89,7 @@ const Details = () => {
             <form onSubmit={formik.handleSubmit}>
                 <div className='col-md-6 mx-auto shadow-lg p-3 border border-2 border-light centerstyle'>
                     {/* <h4 className='fw-bold text-center'>Receipt</h4> */}
+                    <h2>Rec</h2>
                     <div class="input-container">
                         <input onChange={formik.handleChange} name='Amount' value={formik.values.Amount} placeholder="Amount" class="input-field" type="text" />
                         <label for="input-field" class="input-label">Amount</label>
