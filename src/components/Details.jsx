@@ -78,18 +78,15 @@ const Details = () => {
     };
 
     const handleHistoryItemClick = (formData) => {
-        // Populate form fields with data from history item
         formik.setValues(formData);
     };
-
     const filteredHistory = formDataHistory.filter(formData => formData.accountnumber.includes(searchQuery));
-
     return (
         <>
             <form onSubmit={formik.handleSubmit}>
                 <div className='col-md-6 mx-auto shadow-lg p-3 border border-2 border-light centerstyle'>
                     {/* <h4 className='fw-bold text-center'>Receipt</h4> */}
-                    <h2>Receipt</h2>
+                    {/* <h2>Receipt</h2> */}
                     <div class="input-container">
                         <input onChange={formik.handleChange} name='Amount' value={formik.values.Amount} placeholder="Amount" class="input-field" type="text" />
                         <label for="input-field" class="input-label">Amount</label>
@@ -132,12 +129,12 @@ const Details = () => {
                     <div className='text-center mt-5'>
                         <button className='btn btn-secondary' type="submit">Click On</button>
                     </div>
+                    <button className="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                        History
+                    </button>
                 </div>
             </form>
 
-            <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-                History
-            </button>
 
             <div className="offcanvas offcanvas-start" data-bs-backdrop="static" tabIndex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
                 <div className="offcanvas-header">
@@ -156,8 +153,6 @@ const Details = () => {
                     </div>
                     {filteredHistory.map((formData, index) => (
                         <div key={index} onClick={() => handleHistoryItemClick(formData)} style={{ cursor: 'pointer' }}>
-
-
                             <div class="card shadow-lg">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
