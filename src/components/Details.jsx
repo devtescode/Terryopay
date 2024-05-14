@@ -27,7 +27,7 @@ const Details = () => {
             // http://localhost:5000
             // https://candyopay.onrender.com
             const nameit = Data.banks.find((item) => (item.code === values.selectaccount)).name
-            axios.post("https://candyopay.onrender.com/userinvest/userDetails", { AccountNumber: values.accountnumber, Bankcode: values.selectaccount, bank: nameit })
+            axios.post("http://localhost:5000/userinvest/userDetails", { AccountNumber: values.accountnumber, Bankcode: values.selectaccount, bank: nameit })
                 .then((response) => {
                     swal({
                         title: "",
