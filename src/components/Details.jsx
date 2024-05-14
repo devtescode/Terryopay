@@ -80,6 +80,14 @@ const Details = () => {
     const handleHistoryItemClick = (formData) => {
         formik.setValues(formData);
     };
+
+    const handleDelete = (index) => {
+        const updatedHistory = [...formDataHistory];
+        updatedHistory.splice(index, 1);
+        localStorage.setItem('formDataHistory', JSON.stringify(updatedHistory));
+        setFormDataHistory(updatedHistory);
+    };
+
     const filteredHistory = formDataHistory.filter(formData => formData.accountnumber.includes(searchQuery));
     return (
         <>
@@ -167,6 +175,11 @@ const Details = () => {
                                     <li class="list-group-item">
                                         <p>{`Remark: ${formData.Remark}`}</p>
                                     </li>
+                                    <li class="list-group-item text-center">
+                                    <button className="btn btn-danger w-25" onClick={() => handleDelete(index)}>Delete</button>
+                                    <hr />
+                                    </li>
+                                    
                                 </ul>
 
                             </div>
