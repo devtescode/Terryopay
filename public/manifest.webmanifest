@@ -7,12 +7,12 @@
     "theme_color": "#333333",
     "icons": [
         {
-            "src": "/icons/opay.jpg",
+            "src": "/public/icons/opay.jpg",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/icons/opay.jpg",
+            "src": "/public/icons/opay.jpg",
             "sizes": "512x512",
             "type": "image/png"
         }

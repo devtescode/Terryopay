@@ -8,19 +8,19 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'My Application',
-        short_name: 'MyApp',
-        description: 'My Progressive Web App built with Vite',
+        name: 'Opay',
+        short_name: 'OPay Application',
+        description: 'My OPay Web App built with Vite',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         icons: [
           {
-            src: '/opay.jpg',
+            src: '/public/icons/opay.jpg',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/opay.jpg',
+            src: '/public/icons/opay.jpg',
             sizes: '512x512',
             type: 'image/png',
           },
