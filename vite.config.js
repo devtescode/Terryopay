@@ -15,12 +15,12 @@ export default defineConfig({
         background_color: '#ffffff',
         icons: [
           {
-            src: '/public/icons/opay.jpg',
+            src: '/icons/opay.jpg',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/public/icons/opay.jpg',
+            src: '/icons/opay.jpg',
             sizes: '512x512',
             type: 'image/png',
           },
