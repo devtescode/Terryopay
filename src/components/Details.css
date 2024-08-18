@@ -44,10 +44,10 @@
   .input-field:focus + .input-label + .input-highlight {
     width: 100%;
   }
-  .centerstyle {
-    /* margin-top: 10px; */
-    /* height: 100vh; */
-  }
+  /* .centerstyle {
+    margin-top: 10px;
+    height: 100vh;
+  } */
   @media (max-width:688px) {
     .centerstyle {
       /* margin-top: 20%; */

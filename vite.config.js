@@ -9,7 +9,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       manifest: {
         name: 'Opay',
-        short_name: 'OPay Application',
+        short_name: 'OPay',
         description: 'My OPay Web App built with Vite',
         theme_color: '#ffffff',
         background_color: '#ffffff',
