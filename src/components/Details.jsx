@@ -191,7 +191,6 @@ const Details = () => {
                                     <button className="btn btn-danger w-25" onClick={() => handleDelete(index)}>Delete</button>
                                     <hr />
                                     </li>
-                                    
                                 </ul>
 
                             </div>
