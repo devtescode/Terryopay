@@ -11,6 +11,7 @@ const Details = () => {
     const [formDataHistory, setFormDataHistory] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [isProcessing, setIsProcessing] = useState(false);
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
     const navigate = useNavigate();
 
     const formik = useFormik({
@@ -66,10 +67,10 @@ const Details = () => {
         }
     }, []);
 
-    const saveFormDataToLocalStorage = (formData, nameit) => {
+    const saveFormDataToLocalStorage = (formData, bankName) => {
         const updatedFormData = {
             ...formData,
-            nameit 
+            bankName, // Save the bank name separately
         };
         const updatedFormDataHistory = [...formDataHistory, updatedFormData];
         localStorage.setItem('formDataHistory', JSON.stringify(updatedFormDataHistory));
@@ -89,6 +90,23 @@ const Details = () => {
         updatedHistory.splice(index, 1);
         localStorage.setItem('formDataHistory', JSON.stringify(updatedHistory));
         setFormDataHistory(updatedHistory);
+    };
+
+    const handleDeleteAll = () => {
+        setShowConfirmModal(true); // Show the confirmation modal
+    };
+
+    const confirmDeleteAll = () => {
+        // Clear the history from local storage
+        localStorage.removeItem('formDataHistory');
+        
+        // Clear the history from the component state
+        setFormDataHistory([]);
+        setShowConfirmModal(false); // Hide the confirmation modal
+    };
+
+    const cancelDeleteAll = () => {
+        setShowConfirmModal(false); // Hide the confirmation modal
     };
 
     const filteredHistory = formDataHistory.filter(formData => formData.accountnumber.includes(searchQuery));
@@ -147,6 +165,14 @@ const Details = () => {
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </div>
+                    
+                    {/* Add Delete All Button */}
+                    <div className="text-center my-3">
+                        <button className="btn btn-danger" onClick={handleDeleteAll}>
+                            Delete All
+                        </button>
+                    </div>
+
                     {filteredHistory.map((formData, index) => (
                         <div key={index} onClick={() => handleHistoryItemClick(formData)} style={{ cursor: 'pointer' }}>
                             <div className="card shadow-lg">
@@ -155,7 +181,7 @@ const Details = () => {
                                         <p>{`Account Number: ${formData.accountnumber}`}</p>
                                     </li>
                                     <li className="list-group-item">
-                                        <p>{`Bank: ${formData.nameit}`}</p> {/* Now shows the bank name */}
+                                        <p>{`Bank: ${formData.bankName}`}</p>
                                     </li>
                                     <li className="list-group-item">
                                         <p>{`Amount: ${formData.Amount}`}</p>
@@ -171,6 +197,25 @@ const Details = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+            </div>
+
+            {/* Confirmation Modal */}
+            <div className={`modal fade ${showConfirmModal ? 'show' : ''}`} id="confirmationModal" tabIndex="-1" aria-labelledby="confirmationModalLabel" aria-hidden={!showConfirmModal} style={{ display: showConfirmModal ? 'block' : 'none' }}>
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="confirmationModalLabel">Confirm Deletion</h5>
+                            <button type="button" className="btn-close" onClick={cancelDeleteAll} aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            Are you sure you want to delete all history records?
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" onClick={cancelDeleteAll}>Cancel</button>
+                            <button type="button" className="btn btn-danger" onClick={confirmDeleteAll}>Delete All</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
