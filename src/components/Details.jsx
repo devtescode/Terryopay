@@ -27,25 +27,25 @@ const Details = () => {
             // http://localhost:5000
             // https://candyopay.onrender.com
             const nameit = Data.banks.find((item) => (item.code === values.selectaccount)).name
-            axios.post("https://candyopay.onrender.com/userinvest/userDetails", { AccountNumber: values.accountnumber, Bankcode: values.selectaccount, bank: nameit })
+            axios.post("http://localhost:5000/userinvest/userDetails", { AccountNumber: values.accountnumber, Bankcode: values.selectaccount, bank: nameit })
                 .then((response) => {
-                    swal({
-                        title: "",
-                        text: response.data.message,
-                        icon: "warning",
-                        button: "Aww yiss!",
-                    });
+                    // swal({
+                    //     title: "",
+                    //     text: response.data.message,
+                    //     icon: "warning",
+                    //     button: "Aww yiss!",
+                    // });
                     // alert(response.data.message)
                     if (response.data.status == true) {
                         setaccount(response.data.accountName)
                         
                         // alert(response.data.message)
-                        swal({
-                            title: "Good job!",
-                            text: response.data.message,
-                            icon: "success",
-                            button: "Okay",
-                        });
+                        // swal({
+                        //     title: "Good job!",
+                        //     text: response.data.message,
+                        //     icon: "success",
+                        //     button: "Okay",
+                        // });
                         navigate(`/check?accountName=${response.data.accountName}&amount=${values.Amount}&accountnumber=${values.accountnumber}&Remark=${values.Remark}&bankCode=${values.selectaccount}&nameit=${nameit}`);
                         console.log(response);
                         saveFormDataToLocalStorage(values);
@@ -108,35 +108,35 @@ const Details = () => {
                         <label for="input-field" class="input-label">Amount</label>
                         <span class="input-highlight"></span>
                     </div>
-                    <div className='text-end text-danger'>
+                    {/* <div className='text-end text-danger'>
                         {formik.errors.Amount}
-                    </div>
+                    </div> */}
                     <div class="input-container">
                         <input onChange={formik.handleChange} name='accountnumber' value={formik.values.accountnumber} placeholder="Account Number" class="input-field" type="text" />
                         <label for="input-field" class="input-label">Account Number</label>
                         <span class="input-highlight"></span>
                     </div>
-                    <div className='text-end text-danger'>
+                    {/* <div className='text-end text-danger'>
                         {formik.errors.accountnumber}
-                    </div>
+                    </div> */}
 
                     <select name="selectaccount" onChange={formik.handleChange} value={formik.values.selectaccount} class="my-5 form-select form-select-lg" aria-label="Large select example">
                         {Data.banks.map((item, index) => (
                             <option value={item.code}>{item.name}</option>
                         ))}
                     </select>
-                    <div className='text-end text-danger'>
+                    {/* <div className='text-end text-danger'>
                         {formik.errors.selectaccount}
-                    </div>
+                    </div> */}
 
                     <div class="input-container">
                         <input onChange={formik.handleChange} name='Remark' value={formik.values.Remark} placeholder="Remark" class="input-field" type="text" />
                         <label for="input-field" class="input-label">Remark</label>
                         <span class="input-highlight"></span>
                     </div>
-                    <div className='text-end text-danger'>
+                    {/* <div className='text-end text-danger'>
                         {formik.errors.Remark}
-                    </div>
+                    </div> */}
 
                     <div class="input-container my-4">
                         <input disabled placeholder="Account Name" class="input-field text-center fw-bold" type="text" value={account} />
