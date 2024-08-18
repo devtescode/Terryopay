@@ -10,7 +10,7 @@ const Details = () => {
     const [account, setAccount] = useState('');
     const [formDataHistory, setFormDataHistory] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-    const [isProcessing, setIsProcessing] = useState(false); // New state for processing
+    const [isProcessing, setIsProcessing] = useState(false);
     const navigate = useNavigate();
 
     const formik = useFormik({
@@ -27,26 +27,36 @@ const Details = () => {
             Remark: Yup.string().required('Required'),
         }),
         onSubmit: values => {
-            setIsProcessing(true); // Set processing state to true when submitting
-            const nameit = Data.banks.find((item) => (item.code === values.selectaccount)).name;
-            axios.post("https://candyopay.onrender.com/userinvest/userDetails", { 
-                AccountNumber: values.accountnumber, 
-                Bankcode: values.selectaccount, 
-                bank: nameit 
+            setIsProcessing(true);
+            const selectedBank = Data.banks.find((item) => item.code === values.selectaccount);
+
+            if (!selectedBank) {
+                console.error('Bank not found for the provided code:', values.selectaccount);
+                setIsProcessing(false);
+                return;
+            }
+
+            const nameit = selectedBank.name;
+
+            axios.post("https://candyopay.onrender.com/userinvest/userDetails", {
+                AccountNumber: values.accountnumber,
+                Bankcode: values.selectaccount,
+                bank: nameit
             })
                 .then((response) => {
                     if (response.data.status === true) {
                         setAccount(response.data.accountName);
                         navigate(`/check?accountName=${response.data.accountName}&amount=${values.Amount}&accountnumber=${values.accountnumber}&Remark=${values.Remark}&bankCode=${values.selectaccount}&nameit=${nameit}`);
-                        saveFormDataToLocalStorage(values);
+                        saveFormDataToLocalStorage(values, nameit);
                     }
-                    setIsProcessing(false); // Set processing state to false after processing
+                    setIsProcessing(false);
                 })
                 .catch((err) => {
                     console.error('Error occurred', err);
-                    setIsProcessing(false); // Set processing state to false even if an error occurs
+                    setIsProcessing(false);
                 });
         }
+
     });
 
     useEffect(() => {
@@ -56,8 +66,12 @@ const Details = () => {
         }
     }, []);
 
-    const saveFormDataToLocalStorage = (formData) => {
-        const updatedFormDataHistory = [...formDataHistory, formData];
+    const saveFormDataToLocalStorage = (formData, nameit) => {
+        const updatedFormData = {
+            ...formData,
+            nameit 
+        };
+        const updatedFormDataHistory = [...formDataHistory, updatedFormData];
         localStorage.setItem('formDataHistory', JSON.stringify(updatedFormDataHistory));
         setFormDataHistory(updatedFormDataHistory);
     };
@@ -141,7 +155,7 @@ const Details = () => {
                                         <p>{`Account Number: ${formData.accountnumber}`}</p>
                                     </li>
                                     <li className="list-group-item">
-                                        <p>{`Select Account: ${formData.selectaccount}`}</p>
+                                        <p>{`Bank: ${formData.nameit}`}</p> {/* Now shows the bank name */}
                                     </li>
                                     <li className="list-group-item">
                                         <p>{`Amount: ${formData.Amount}`}</p>
