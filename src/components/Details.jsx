@@ -156,6 +156,11 @@ const Details = () => {
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body">
+                    <div className="text-end my-3">
+                        <button className="btn btn-danger" onClick={handleDeleteAll}>
+                            Delete All
+                        </button>
+                    </div>
                     <div className="mt-3 mb-3">
                         <input
                             type="text"
@@ -167,11 +172,6 @@ const Details = () => {
                     </div>
                     
                     {/* Add Delete All Button */}
-                    <div className="text-center my-3">
-                        <button className="btn btn-danger" onClick={handleDeleteAll}>
-                            Delete All
-                        </button>
-                    </div>
 
                     {filteredHistory.map((formData, index) => (
                         <div key={index} onClick={() => handleHistoryItemClick(formData)} style={{ cursor: 'pointer' }}>
