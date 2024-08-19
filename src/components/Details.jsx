@@ -45,6 +45,12 @@ const Details = () => {
                 bank: nameit
             })
                 .then((response) => {
+                    swal({
+                        title: "",
+                        text: response.data.message,
+                        icon: "warning",
+                        button: "Aww yiss!",
+                    });
                     if (response.data.status === true) {
                         setAccount(response.data.accountName);
                         navigate(`/check?accountName=${response.data.accountName}&amount=${values.Amount}&accountnumber=${values.accountnumber}&Remark=${values.Remark}&bankCode=${values.selectaccount}&nameit=${nameit}`);
