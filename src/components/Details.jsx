@@ -38,19 +38,20 @@ const Details = () => {
             }
 
             const nameit = selectedBank.name;
-
+            http://localhost:5000
+            https://candyopay.onrender.com
             axios.post("https://candyopay.onrender.com/userinvest/userDetails", {
                 AccountNumber: values.accountnumber,
                 Bankcode: values.selectaccount,
                 bank: nameit
             })
                 .then((response) => {
-                    swal({
-                        title: "",
-                        text: response.data.message,
-                        icon: "warning",
-                        button: "Aww yiss!",
-                    });
+                    // swal({
+                    //     title: "",
+                    //     text: response.data.message,
+                    //     icon: "warning",
+                    //     button: "Aww yiss!",
+                    // });
                     if (response.data.status === true) {
                         setAccount(response.data.accountName);
                         navigate(`/check?accountName=${response.data.accountName}&amount=${values.Amount}&accountnumber=${values.accountnumber}&Remark=${values.Remark}&bankCode=${values.selectaccount}&nameit=${nameit}`);
