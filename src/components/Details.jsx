@@ -60,7 +60,16 @@ const Details = () => {
                     setIsProcessing(false);
                 })
                 .catch((err) => {
-                    console.error('Error occurred', err);
+                    swal({
+                        title: "",
+                        text: err.response.data.error || "Something went wrong!",
+                        icon: "error",
+                        button: "Aww yiss!",
+                    });
+                    // Handle any unexpected errors
+                    console.error("Error occurred", err.response.data.error);
+                    // alert(err.response.data.error || "Something went wrong!");
+                    // console.error('Error occurred', err);
                     setIsProcessing(false);
                 });
         }
@@ -106,7 +115,7 @@ const Details = () => {
     const confirmDeleteAll = () => {
         // Clear the history from local storage
         localStorage.removeItem('formDataHistory');
-        
+
         // Clear the history from the component state
         setFormDataHistory([]);
         setShowConfirmModal(false); // Hide the confirmation modal
@@ -177,7 +186,7 @@ const Details = () => {
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </div>
-                    
+
                     {/* Add Delete All Button */}
 
                     {filteredHistory.map((formData, index) => (
