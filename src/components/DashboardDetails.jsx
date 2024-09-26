@@ -151,7 +151,7 @@ const DashboardDetails = () => {
                 {/* <button className='btn btn-success w-100 p-3' style={{ alignItems: "center" }} onClick={TriggerBtn}>Share Receipt</button> */}
 
                 <button
-                    className={`btn ${status === 'success' ? 'btn-success' : 'btn-success'} w-100 p-3`}
+                    className={`btn ${status === 'success' ? 'btn-success' : 'btn-success'} w-100 p-2`}
                     style={{ alignItems: 'center' }}
                     onClick={TriggerBtn}
                 >
