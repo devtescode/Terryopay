@@ -1,5 +1,5 @@
-const isProduction = window.location.hostname !== 'localhost'; // Check if it's not localhost
+const isProduction = window.location.hostname !== 'localhost';
 
 export const baseURL = isProduction 
-  ? 'https://candyopay.onrender.com'   // Deployed URL
+  ? 'https://candyopay.onrender.com'   
   : 'http://localhost:5000';  
