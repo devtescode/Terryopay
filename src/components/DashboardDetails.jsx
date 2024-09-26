@@ -54,7 +54,7 @@ const DashboardDetails = () => {
     };
     return (
         <>
-            <div className='border border-2 col-md-5 col-sm-12 mx-auto shadow-lg'>
+            <div className='col-md-5 col-sm-12 mx-auto shadow-lg'>
                 <div className='mt-2 d-flex justify-content-between mx-2 ' style={{ alignItems: "center" }}>
                     <div>
                         <img style={{ width: "80px" }} src={Opay} alt="" />

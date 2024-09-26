@@ -29,7 +29,7 @@ const CheckDetails = () => {
      }
     return (
         <>
-            <div className='checkdetailresp mt-0 mt-sm-5 shadow-lg border border-2 col-md-4 mx-auto col-sm-12'>
+            <div className='checkdetailresp mt-0 mt-sm-5 shadow-lg col-md-4 mx-auto col-sm-12'>
                     <h5 class="text-end donecolor p-2">Done</h5>
                     <div class="text-center" style={{marginTop: "70px"}}>
                         <img src={capture} class="thewith" alt="..." />
