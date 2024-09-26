@@ -14,7 +14,17 @@ const CheckDetails = () => {
     const Remark = params.get('Remark');
     const navigate = useNavigate();
      const ShareBtn=()=>{
-        navigate(`/dashboard?accountName=${accountName}&amount=${amount}&accountnumber=${accountnumber}&Remark=${Remark}&nameit=${nameit}`);
+        // navigate(`/dashboard?accountName=${accountName}&amount=${amount}&accountnumber=${accountnumber}&Remark=${Remark}&nameit=${nameit}`);
+
+        const queryParams = new URLSearchParams({
+            accountName: accountName,
+            amount: amount,
+            accountnumber: accountnumber,
+            Remark: Remark,
+            nameit: nameit,
+        }).toString();
+    
+        navigate(`/dashboard?${queryParams}`);
         // $Remark=${Remark}
      }
     return (

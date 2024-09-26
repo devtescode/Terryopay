@@ -39,24 +39,25 @@ const Details = () => {
             }
 
             const nameit = selectedBank.name;
-            http://localhost:5000
-            https://candyopay.onrender.com
-            // "http://localhost:5000/userinvest/userDetails"
+            
             axios.post(API_URLS.userDetails, {
                 AccountNumber: values.accountnumber,
                 Bankcode: values.selectaccount,
                 bank: nameit
             })
                 .then((response) => {
-                    // swal({
-                    //     title: "",
-                    //     text: response.data.message,
-                    //     icon: "warning",
-                    //     button: "Aww yiss!",
-                    // });
+                   
                     if (response.data.status === true) {
                         setAccount(response.data.accountName);
-                        navigate(`/check?accountName=${response.data.accountName}&amount=${values.Amount}&accountnumber=${values.accountnumber}&Remark=${values.Remark}&bankCode=${values.selectaccount}&nameit=${nameit}`);
+                        const queryParams = new URLSearchParams({
+                            accountName: response.data.accountName,
+                            amount: values.Amount,
+                            accountnumber: values.accountnumber,
+                            Remark: values.Remark,
+                            bankCode: values.selectaccount,
+                            nameit: nameit,
+                        }).toString();
+                        navigate(`/check?${queryParams}`);
                         saveFormDataToLocalStorage(values, nameit);
                     }
                     setIsProcessing(false);
