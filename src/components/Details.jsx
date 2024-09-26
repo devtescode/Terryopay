@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { API_URLS } from '../../utils/apiConfig';
 
 const Details = () => {
     const [account, setAccount] = useState('');
@@ -40,7 +41,8 @@ const Details = () => {
             const nameit = selectedBank.name;
             http://localhost:5000
             https://candyopay.onrender.com
-            axios.post("https://candyopay.onrender.com/userinvest/userDetails", {
+            // "http://localhost:5000/userinvest/userDetails"
+            axios.post(API_URLS.userDetails, {
                 AccountNumber: values.accountnumber,
                 Bankcode: values.selectaccount,
                 bank: nameit
@@ -109,7 +111,7 @@ const Details = () => {
     };
 
     const handleDeleteAll = () => {
-        setShowConfirmModal(true); // Show the confirmation modal
+        setShowConfirmModal(true);
     };
 
     const confirmDeleteAll = () => {
