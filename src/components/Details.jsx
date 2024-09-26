@@ -69,10 +69,9 @@ const Details = () => {
                         icon: "error",
                         button: "Aww yiss!",
                     });
-                    // Handle any unexpected errors
+                 
                     console.error("Error occurred", err.response.data.error);
-                    // alert(err.response.data.error || "Something went wrong!");
-                    // console.error('Error occurred', err);
+                    
                     setIsProcessing(false);
                 });
         }
